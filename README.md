@@ -164,13 +164,9 @@ The LUCIA agent has been deployed to Google Cloud's Vertex AI Agent Engine as a 
 ### **Deploy Command**
 
 To deploy the contents of the lucia\_deploy/ directory:
-
-adk deploy agent\_engine \\
-   \--project=$PROJECT\_ID \\
-   \--region=$deployed\_region \\
-   lucia\_deploy \\ 
-   \--agent\_engine\_config\_file=lucia\_deploy/.agent\_engine\_config.json
-
+```bash
+adk deploy agent_engine --project=$PROJECT_ID --region=$deployed_region lucia_deploy --agent_engine_config_file=lucia_deploy/.agent_engine_config.json
+```
 ## **7\. Future Vision**
 
 This capstone demonstrates LUCIA's immediate utility, but its long-term value lies in longitudinal observation.
