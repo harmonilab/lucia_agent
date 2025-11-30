@@ -129,7 +129,8 @@ Output: "Often results in women's pain being taken less seriously or misdiagnose
 Agent 3 (`Advocacy generator`): Generates advocacy questions for the patient  
 
 ## Step 3: The Output (Advocacy Report)  
-LUCIA generates the following document for the patient:
+LUCIA generates the following document for the patient:  
+
 **Patient Advocacy & Consultation Aid**
 
 **Disclaimer:** This report is generated to assist in patient–doctor communication and is not medical advice. Always consult a qualified healthcare professional for diagnosis and treatment.
