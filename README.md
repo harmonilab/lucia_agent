@@ -79,30 +79,27 @@ lucia\_agent/
 
 ### **Step 1: Clone and Environment**
 ```bash
-git clone \[https://github.com/innacampo/lucia_agent.git\](https://github.com/innacampo/lucia_agent.git) 
+git clone https://github.com/innacampo/lucia_agent.git
 cd lucia agent 
 
-\# Create a virtual environment 
-python3 \-m venv venv 
+# Create a virtual environment 
+python3 -m venv venv 
 
-\# Activate the virtual environment 
-\# On macOS/Linux: 
+# Activate the virtual environment 
 source venv/bin/activate 
-\# On Windows: 
-.\\venv\\Scripts\\activate
 ```
 
 ### **Step 2: Install Dependencies**
 ```bash
-pip install \-r requirements.txt
+pip install -r requirements.txt
 ```
 ### **Step 3: Configuration**
 
 Create a .env file in the root directory. **Do not commit this file.**
 ```bash
-\# .env file` 
-GOOGLE\_API\_KEY="your\_actual\_api\_key\_here"
-LOG\_LEVEL=INFO
+# .env file` 
+GOOGLE_API_KEY="your_actual_api_key_here"
+LOG_LEVEL=INFO
 ```
 ## **4\. Usage & Testing**
 
@@ -110,7 +107,7 @@ We use a manual integration test script to verify the agent's behavior against s
 
 To run the integration test:
 ```bash
-python \-m tests.test\_agent
+python -m tests.test_agent
 ```
 ## **5\. Demo Scenario: The "Perimenopause" Dismissal**
 
@@ -120,16 +117,16 @@ In this scenario, a 48-year-old user shares a frustrating interaction regarding 
 *User:* "I've been waking up with stiff, swollen joints in my hands and feet for three months. The fatigue is so bad I have to nap in my car at lunch. I saw a new doctor today. I tried to show him the swelling, but he barely looked. He told me that at 48, this is just classic perimenopause and 'empty nest syndrome' making me depressed. He didn't order any blood work. He just told me to lose 10 pounds and try meditation to calm my 'nerves' because women get so anxious at this stage of life."
 
 ## Step 2: The Logic (Internal Monologue & Tool Usage)   
-Agent 1 (`Symptom Mapper`): Extracts Symptoms and assigns them to clusters:
-stiff joints in my hands and feet $\\to$ pain cluster
-fatigue $\\to$ fatigue cluster
-swollen joints in my hands and feet  $\\to$ musculoskeletal cluster
-Agent 2 (`Bias Analyzer`): Detects bias markers in the narrative (attribution of physical swelling to 'nerves') and queries the AXIOM Knowledge Base.
-Tool Call: `get_bias_implications(bias_type="ageism_bias")`
-Output: "Dismissing a patient's medical concerns as a normal or inevitable part of aging. This can prevent the timely diagnosis and treatment of serious conditions like heart disease, cancer, or neurological issues."
-Tool Call: `get_bias_implications(bias_type="gender_bias")`
-Output: "Often results in women's pain being taken less seriously or misdiagnosed, particularly in cardiovascular and autoimmune diseases."
-Agent 3 (`Advocacy generator`): Generates advocacy questions for the patient
+Agent 1 (`Symptom Mapper`): Extracts Symptoms and assigns them to clusters:  
+stiff joints in my hands and feet $\\to$ pain cluster  
+fatigue $\\to$ fatigue cluster  
+swollen joints in my hands and feet  $\\to$ musculoskeletal cluster  
+Agent 2 (`Bias Analyzer`): Detects bias markers in the narrative (attribution of physical swelling to 'nerves') and queries the AXIOM Knowledge Base.  
+Tool Call: `get_bias_implications(bias_type="ageism_bias")`  
+Output: "Dismissing a patient's medical concerns as a normal or inevitable part of aging. This can prevent the timely diagnosis and treatment of serious conditions like heart disease, cancer, or neurological issues."  
+Tool Call: `get_bias_implications(bias_type="gender_bias")`  
+Output: "Often results in women's pain being taken less seriously or misdiagnosed, particularly in cardiovascular and autoimmune diseases."  
+Agent 3 (`Advocacy generator`): Generates advocacy questions for the patient  
 
 ## Step 3: The Output (Advocacy Report)  
 LUCIA generates the following document for the patient:
@@ -168,14 +165,10 @@ The LUCIA agent has been deployed to Google Cloud's Vertex AI Agent Engine as a 
 To deploy the contents of the lucia\_deploy/ directory:
 
 adk deploy agent\_engine \\
- 
-  \--project=$PROJECT\_ID \\
- 
-  \--region=$deployed\_region \\
- 
-  lucia\_deploy \\ 
-
-  \--agent\_engine\_config\_file=lucia\_deploy/.agent\_engine\_config.json
+   \--project=$PROJECT\_ID \\
+   \--region=$deployed\_region \\
+   lucia\_deploy \\ 
+   \--agent\_engine\_config\_file=lucia\_deploy/.agent\_engine\_config.json
 
 ## **7\. Future Vision**
 
