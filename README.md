@@ -98,9 +98,10 @@ pip install -r requirements.txt
 
 Create a .env file in the root directory. **Do not commit this file.**
 ```bash
-# .env file` 
+cat <<EOF > .env
 GOOGLE_API_KEY="your_actual_api_key_here"
-LOG_LEVEL=INFO
+GOOGLE_GENAI_USE_VERTEXAI=0
+EOF
 ```
 ## **4\. Usage & Testing**
 
