@@ -103,6 +103,13 @@ GOOGLE_API_KEY="your_actual_api_key_here"
 GOOGLE_GENAI_USE_VERTEXAI=0
 EOF
 ```
+
+```bash
+# .env file
+GOOGLE_API_KEY="your_actual_api_key_here"
+GOOGLE_GENAI_USE_VERTEXAI=0
+```
+
 ## **4\. Usage & Testing**
 
 We use a manual integration test script to verify the agent's behavior against specific patient narratives.
