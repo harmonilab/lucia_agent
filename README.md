@@ -51,24 +51,25 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 
 ## **2\. Project Structure**
 
-lucia\_agent/  
-├── images/                   \# Project assets (logos, diagrams)   
-├── lucia\_deploy/             \# Deployment artifacts for Vertex AI Agent Engine  
-│   ├── .agent\_engine\_config.json   
-│   ├── agent.py              \# Deployment-specific agent logic   
-│   ├── requirements.txt   
-│   └── .env   
-├── main\_agent/               \# Core application logic   
-│   ├── \_\_init\_\_.py   
-│   └── agent.py              \# Root Agent, Sub-agents, and Orchestration logic   
-├── tests/                    \# Integration and Unit tests   
-│   ├── README.md   
-│   └── test\_agent.py         \# Main integration runner script   
-├── .env                      \# Environment variables (Excluded from Git)   
-├── requirements.txt          \# Python dependencies   
-├── README.md                 \# Project documentation   
-└── LICENSE  
-
+```text
+lucia_agent/
+├── images/                   # Project assets (logos, diagrams)
+├── lucia_deploy/             # Deployment artifacts for Vertex AI Agent Engine
+│   ├── .agent_engine_config.json
+│   ├── agent.py              # Deployment-specific agent logic
+│   ├── requirements.txt
+│   └── .env
+├── main_agent/               # Core application logic
+│   ├── __init__.py
+│   └── agent.py              # Root Agent, Sub-agents, and Orchestration logic
+├── tests/                    # Integration and Unit tests
+│   ├── README.md
+│   └── test_agent.py         # Main integration runner script
+├── .env                      # Environment variables (Excluded from Git)
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation
+└── LICENSE
+```
 ## **3\. Installation & Setup**
 
 ### **Prerequisites**
