@@ -37,14 +37,14 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 
 1. **Ingest & Map (The Digital Scribe)** 
    * **Agent:** `symptom_mapper` 
-   * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the symptomMapping state (e.g., "brain fog" $\\to$ Neurological Cluster). 
+   * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the `symptomMapping` state (e.g., "brain fog" $\\to$ Neurological Cluster). 
 2. **Audit (Clinical Decision Support)** 
    * **Agent:** `bias_analyzer` 
    * **Tool:** AXIOM Knowledge Base (via `get_bias_implications`) 
-   * **Action:** Audits the narrative for cognitive traps like premature closure. It asynchronously updates biasAwareness, framing potential biases as diagnostic pivot points. 
+   * **Action:** Audits the narrative for cognitive traps like premature closure. It asynchronously updates `biasAwareness`, framing potential biases as diagnostic pivot points. 
 3. **Advocacy (The Patient Prep Engine)** 
    * **Agent:** `advocacy_generator` 
-   * **Action:** Transforms anxiety into a structured agenda. Generates structuredAdvocacy questions (e.g., "Given symptoms X and Y, should we check thyroid function?") to focus the conversation. 
+   * **Action:** Transforms anxiety into a structured agenda. Generates `structuredAdvocacy` questions (e.g., "Given symptoms X and Y, should we check thyroid function?") to focus the conversation. 
 4. **Structure (The Clinical Handoff)** 
    * **Agent:** `report_formatter` 
    * **Action:** Compiles the final output into a professional Consultation Brief (Subjective $\\to$ Assessment $\\to$ Plan).
