@@ -1,9 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Nov 17 10:39:16 2025
+LUCIA Agent Integration Test & Scenario Runner
 
-@author: inna
+This script performs an integration test for the `root_agent` by simulating a 
+multi-turn conversation with a specific user persona. It validates the agent's 
+ability to handle context, empathy, and medical reasoning.
+
+Scenario:
+    The test simulates a female patient describing symptoms indicative of an 
+    autoimmune condition (stiff joints, fatigue) who has faced potential 
+    medical gaslighting (symptoms dismissed as perimenopause/anxiety).
+
+Key Features:
+    - **Session Management**: Uses `InMemorySessionService` to maintain 
+      conversational state across multiple queries.
+    - **ADK Runner**: Utilizes the Google ADK `Runner` to execute the 
+      `root_agent` asynchronously.
+    - **Response Handling**: Captures and prints both intermediate events 
+      and the final response for verification.
+
+Usage:
+    Run this script from the project root:
+    $ python -m tests.test_agent
+
+Dependencies:
+    - google.adk
+    - google.genai
+    - main_agent.agent
+
+Original Author: inna campo
+Created: Mon Nov 17 2025
 """
 import asyncio
 import uuid
@@ -31,12 +58,10 @@ async def main():
     )
     
     queries = [
-        #"Over the last few months, I've been experiencing significant joint pain, especially in my knees and hands, along with constant fatigue. I've also noticed unexpected weight gain and my hair seems to be thinning. When I brought this up to my doctor, she just told me it's normal aging and to lose weight and eat less. I feel dismissed and like something else is wrong. The brain fog has been so bad lately that I can't concentrate at work, and my anxiety levels are through the roof.",
-        "I've been waking up with stiff, swollen joints in my hands and feet for three months. The fatigue is so bad I have to nap in my car at lunch. I saw a new doctor today. I tried to show him the swelling, but he barely looked. He told me that at 48, this is just classic perimenopause and 'empty nest syndrome' making me depressed. He didn't order any blood work. He just told me to lose 10 pounds and try meditation to calm my 'nerves' because women get so anxious at this stage of life.",    
-        #"I’ve been having chest tightness and shortness of breath when walking up stairs. When I went to the clinic, the provider said 'women your age tend to get anxious' and didn’t run any tests. The symptoms keep happening and I'm worried.",
-        #"I’ve had knee swelling and stiffness for months. My doctor keeps telling me it's 'because I'm overweight' and that losing weight will fix everything. But the swelling is getting worse and sometimes the joint feels hot.",
-        #"I keep feeling 'off' the past few weeks. My energy is low and I can’t describe it well. My doctor said it's normal for my age, but I don't know if that’s true.",
-    ]
+        "I've been waking up with stiff, swollen joints in my hands and feet for three months. The fatigue is so bad I have to nap in my car at lunch.",
+        "I saw a new doctor today. I tried to show him the swelling, but he barely looked. He told me that at 48, this is just classic perimenopause and 'empty nest syndrome' making me depressed.",
+        "He didn't order any blood work. He just told me to lose 10 pounds and try meditation to calm my 'nerves' because women get so anxious at this stage of life."   
+        ]
 
     for query in queries:
         print(f">>> {query}")
@@ -54,14 +79,13 @@ async def main():
             ),
         ):
             if event.is_final_response() and event.content and event.content.parts:
-                #print(event.content.parts[0].text)
+                print(event.content.parts[0].text)
                 final_report = event.content.parts[0].text
 
         # 3. Print the stored report only once, after the agent is done
         if final_report:
+            print("\n\nFinal Report\n\n")
             print(final_report)
             
-
-
 if __name__ == "__main__":
     asyncio.run(main())

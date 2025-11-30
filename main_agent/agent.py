@@ -1,9 +1,46 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Nov 16 14:21:28 2025
-@author: inna campo
-""" 
+LUCIA Core Agent Logic & Orchestration
+
+This module defines the primary intelligence architecture for the LUCIA application.
+It constructs a composite `root_agent` using the Google ADK (Agent Development Kit),
+orchestrating a workflow that transforms raw patient narratives into structured
+advocacy reports.
+
+Architecture Overview:
+    The pipeline utilizes a "Map-Reduce" style architecture combining Parallel 
+    and Sequential execution patterns:
+
+    1.  **Input:** Raw patient text (narrative).
+    2.  **Parallel Processing (Analysis Layer):**
+        * `symptom_mapper_agent`: Extracts patient-reported symptoms, strictly filtering
+            out doctor-imposed labels/diagnoses.
+        * `bias_analyzer_agent`: Detects provider bias using a Mock RAG tool 
+            (`get_bias_implications`) to ground insights in clinical literature.
+    3.  **Sequential Processing (Synthesis Layer):**
+        * `advocacy_generator_agent`: Synthesizes the outputs from the analysis layer
+            to generate medically neutral questions for the patient.
+        * `report_formatter_agent`: Aggregates all JSON outputs into a final, 
+            human-readable text report.
+
+Key Components:
+    * **Mock RAG Interface:** `get_bias_implications` simulates a vector database retrieval 
+        to ensure the agent relies on "Ground Truth" rather than hallucination. 
+            * **Root Agent:** The `analysis_workflow_agent` which serves as the entry point 
+        for the `Runner`.
+
+Usage:
+    Import `root_agent` into your runner script:
+    >>> from main_agent.agent import root_agent
+    >>> runner = Runner(agent=root_agent, ...)
+
+Dependencies:
+    - google.adk.agents (LlmAgent, SequentialAgent, ParallelAgent)
+
+Original Author: inna campo
+Created: Sun Nov 16 14:21:28 2025
+"""
 from google.adk.agents import  LlmAgent, SequentialAgent, ParallelAgent
 
 def get_bias_implications(bias_type: str) -> str:
