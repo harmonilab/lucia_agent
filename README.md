@@ -78,39 +78,40 @@ lucia\_agent/
 * **Google API Key**
 
 ### **Step 1: Clone and Environment**
+```bash
+git clone \[https://github.com/innacampo/lucia_agent.git\](https://github.com/innacampo/lucia_agent.git) 
+cd lucia agent 
 
-`git clone \[https://github.com/innacampo/lucia_agent.git\](https://github.com/innacampo/lucia_agent.git)` 
-`cd lucia agent` 
+\# Create a virtual environment 
+python3 \-m venv venv 
 
-`\# Create a virtual environment` 
-`python3 \-m venv venv` 
-
-`\# Activate the virtual environment` 
-`\# On macOS/Linux:` 
-`source venv/bin/activate` 
-`\# On Windows:` 
-`.\\venv\\Scripts\\activate`
+\# Activate the virtual environment 
+\# On macOS/Linux: 
+source venv/bin/activate 
+\# On Windows: 
+.\\venv\\Scripts\\activate
+```
 
 ### **Step 2: Install Dependencies**
-
-`pip install \-r requirements.txt`
-
+```bash
+pip install \-r requirements.txt
+```
 ### **Step 3: Configuration**
 
 Create a .env file in the root directory. **Do not commit this file.**
-
-`\# .env file` 
-`GOOGLE\_API\_KEY="your\_actual\_api\_key\_here"` 
-`LOG\_LEVEL=INFO`
-
+```bash
+\# .env file` 
+GOOGLE\_API\_KEY="your\_actual\_api\_key\_here"
+LOG\_LEVEL=INFO
+```
 ## **4\. Usage & Testing**
 
 We use a manual integration test script to verify the agent's behavior against specific patient narratives.
 
 To run the integration test:
-
-`python \-m tests.test\_agent`
-
+```bash
+python \-m tests.test\_agent
+```
 ## **5\. Demo Scenario: The "Perimenopause" Dismissal**
 
 In this scenario, a 48-year-old user shares a frustrating interaction regarding autoimmune-like symptoms.
