@@ -6,7 +6,7 @@
 ![Tech](https://img.shields.io/badge/Built%20With-Google%20ADK%20%7C%20Gemini%202.5-orange)
 ![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)
 
-> **"A bridge, not a wedge."** — Closing the gender diagnostic gap with Multi-Agent Systems.
+> **"A bridge, not a wedge."** - Closing the gender diagnostic gap with Multi-Agent Systems.
 
 **LUCIA (Language Understanding for Clinical Insight & Analysis)** is a dual-agent AI instrument designed to address "diagnostic shadowing" in women's health. It acts as a collaborative layer between patient narratives and clinical diagnosis.
 
