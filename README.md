@@ -12,25 +12,15 @@
 
 ---
 
-## 🚨 The Problem
+## The Problem
 Women face on average a **four-year diagnostic delay** compared to men. This is often rooted in systemic bias where physical symptoms are wrongly attributed to mental health issues ("it's just anxiety").
 
-## 💡 The Solution
+## The Solution
 LUCIA uses a **Dual-Stream Architecture** to separate the "listening" from the "auditing":
 * **For the Clinician:** Synthesizes narratives into structured **Review of Systems (ROS)** data.
 * **For the Patient:** Flags potential bias (Ageism, Gender Bias) using the **AXIOM Knowledge Base** and generates neutral advocacy questions.
 
 ---
-## **📚 Table of Contents**
-
-1. [Architecture & Workflow](https://www.google.com/search?q=%231-architecture--workflow-the-dual-stream-engine)
-2. [Project Structure](https://www.google.com/search?q=%232-project-structure) 
-3. [Installation & Setup](https://www.google.com/search?q=%233-installation--setup) 
-4. [Usage & Testing](https://www.google.com/search?q=%234-usage--testing) 
-5. [Demo Scenario](https://www.google.com/search?q=%235-demo-scenario-the-perimenopause-dismissal) 
-6. [Cloud Deployment](https://www.google.com/search?q=%236-cloud-deployment-vertex-ai-agent-engine) 
-7. [Future Vision](https://www.google.com/search?q=%237-future-vision)
-
 ## **1\. Architecture & Workflow ("The Dual-Stream Engine")**
 
 LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Development Kit (ADK). The system processes the patient's subjective narrative through four distinct stages to create a structured clinical asset.
@@ -75,6 +65,9 @@ lucia_agent/
 ├── README.md                 # Project documentation
 └── LICENSE
 ```
+
+---
+
 ## **3\. Installation & Setup**
 
 ### **Prerequisites**
@@ -108,6 +101,8 @@ GOOGLE_API_KEY="your_actual_api_key_here"
 GOOGLE_GENAI_USE_VERTEXAI=0
 ```
 
+---
+
 ## **4\. Usage & Testing**
 
 We use a manual integration test script to verify the agent's behavior against specific patient narratives.
@@ -116,6 +111,9 @@ To run the integration test:
 ```bash
 python -m tests.test_agent
 ```
+
+---
+
 ## **5\. Demo Scenario: The "Perimenopause" Dismissal**
 
 In this scenario, a 48-year-old user shares a frustrating interaction regarding autoimmune-like symptoms.
@@ -163,6 +161,8 @@ LUCIA generates the following document for the patient:
 * Could we explore explanations for my symptoms beyond age-related changes?
 * How can we ensure my symptoms are evaluated thoroughly, considering potential gender-related factors in diagnosis?
 
+---
+
 ## **6\. Cloud Deployment (Vertex AI Agent Engine)**
 
 LUCIA is designed to run on Google Cloud's Vertex AI Agent Engine.
@@ -170,6 +170,9 @@ To deploy the contents of the `lucia_deploy` directory:
 ```bash
 adk deploy agent_engine --project=$PROJECT_ID --region=$deployed_region lucia_deploy --agent_engine_config_file=lucia_deploy/.agent_engine_config.json
 ```
+
+---
+
 ## **7\. Future Vision**
 
 This capstone demonstrates LUCIA's immediate utility, but its long-term value lies in longitudinal observation.
